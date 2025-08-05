@@ -14,10 +14,14 @@ class Floor extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     function suites():HasMany {
         return $this->hasMany(Suite::class);
+    }
+
+    function rooms():HasMany {
+        return $this->hasMany(Room::class);
     }
 
     function building():BelongsTo {

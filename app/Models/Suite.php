@@ -22,4 +22,9 @@ class Suite extends Model
     function floor():BelongsTo {
         return $this->belongsTo(Floor::class);
     }
+
+
+    function building():BelongsTo {
+        return $this->belongsTo(Building::class);
+    }
 }

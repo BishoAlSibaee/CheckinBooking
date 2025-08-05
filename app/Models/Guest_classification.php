@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class RoomType extends Model
+class Guest_classification extends Model
 {
     use HasFactory;
-    public $timestamps = true;
+    protected $table = 'guest_classifications';
 
-    function rooms() : HasMany
+    function guest_classification_features() : HasMany
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany(Guest_classification_feature::class);
     }
-
 }

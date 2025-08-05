@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('suites', function (Blueprint $table) {
             $table->id();
-            $table->integer('building_id');
-            $table->integer('floor_id');
-            $table->string('number');
-            $table->string('lock_id')->nullable()->unique();
+            $table->unsignedBigInteger('building_id')->comment('ID of the building this suite belongs to');
+            $table->unsignedBigInteger('floor_id')->comment('ID of the floor this suite is located on');
+            $table->string('number')->comment('Suite number');
+            $table->boolean('suiteStatus')->default(false)->comment('Status of the suite (true for booked, false for unbooked)');
+            $table->string('lock_id')->nullable()->unique()->comment('Unique lock ID for the suite');
         });
     }
 

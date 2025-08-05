@@ -10,16 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('facilities', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_ar');
-            $table->string('name_en');
-            $table->integer('building_id');
-            $table->integer('floor_id');
-            $table->integer('suite_id');
-            $table->integer('room_types_id');
-            $table->text('lock_data')->nullable()->unique();
-        });
+        // Schema::create('facilities', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name_ar');
+        //     $table->string('name_en');
+        //     $table->integer('building_id');
+        //     $table->integer('floor_id');
+        //     $table->integer('suite_id');
+        //     $table->integer('room_types_id');
+        //     $table->string('lock_data')->nullable()->unique();
+        // });
     }
 
     /**
@@ -27,7 +27,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('facilities');
+        //Schema::dropIfExists('facilities');
 
     }
 };

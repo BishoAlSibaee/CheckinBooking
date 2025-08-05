@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buildings', function (Blueprint $table) {
+        Schema::connection('mysql2')->create('nationalities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('number')->unique();
-            $table->string('lock_id')->nullable()->unique();
+            $table->string('name')->unique()->comment('Name of the nationality');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buildings');
+        Schema::connection('mysql2')->dropIfExists('nationalities');
     }
 };

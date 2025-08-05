@@ -10,11 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('colleges', function (Blueprint $table) {
-            $table->id();
-            $table->string('college_ar')->unique();
-            $table->string('college_en')->unique();
-        });
+        // Schema::create('colleges', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('college_ar')->unique();
+        //     $table->string('college_en')->unique();
+        // });
     }
 
     /**
@@ -22,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('colleges');
+        //Schema::dropIfExists('colleges');
     }
 };

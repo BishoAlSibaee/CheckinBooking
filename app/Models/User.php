@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,6 +20,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'job_number',
+        'jobtitle_id',
+        'department_id',
+        'mobile',
         'email',
         'password',
     ];
@@ -30,8 +36,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'email_verified_at'
-
     ];
 
     /**
@@ -43,4 +47,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    function permissions() :HasMany
+    {
+        return $this->hasMany(User_permission::class);
+    }
+
+    function jobtitle() : BelongsTo
+    {
+        return $this->belongsTo(Job_title::class);
+    }
+
+    function department() : BelongsTo
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    function discount() : BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }

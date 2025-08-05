@@ -10,14 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('door_unlock_historys', function (Blueprint $table) {
-            $table->id();
-            $table->integer('room_id');
-            $table->integer('room_number');
-            $table->integer('user_id');
-            $table->string('user_name', '50');
-            $table->timestamp('created_at')->useCurrent();
-        });
+        // Schema::create('door_unlock_historys', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->integer('room_id');
+        //     $table->integer('room_number');
+        //     $table->integer('user_id');
+        //     $table->string('user_name', '50');
+        //     $table->timestamp('created_at')->useCurrent();
+        // });
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('door_unlock_historys');
+        //Schema::dropIfExists('door_unlock_historys');
     }
 };

@@ -10,18 +10,18 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('mobile')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->tinyInteger('is_admin')->comment("0 => Admin 1 => User"); // 0=> Admin  1=>User
-            $table->tinyInteger('is_active')->comment("0 => Active 1 => InActive"); // 0=> Active  1=>InActive
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // Schema::create('admins', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->string('mobile')->unique();
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     $table->tinyInteger('is_admin')->comment("0 => Admin 1 => User"); // 0=> Admin  1=>User
+        //     $table->tinyInteger('is_active')->comment("0 => Active 1 => InActive"); // 0=> Active  1=>InActive
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -29,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        //Schema::dropIfExists('admins');
     }
 };

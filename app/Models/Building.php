@@ -10,9 +10,17 @@ class Building extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     function floors():HasMany {
         return $this->hasMany(Floor::class);
+    }
+
+    function suites():HasMany {
+        return $this->hasMany(Suite::class);
+    }
+
+    function rooms():HasMany {
+        return $this->hasMany(Room::class);
     }
 }

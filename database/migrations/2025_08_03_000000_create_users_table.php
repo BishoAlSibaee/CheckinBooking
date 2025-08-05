@@ -13,13 +13,13 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('job_number')->unique()->comment("Unique job number for the user");
+            $table->unsignedBigInteger('jobtitle_id')->comment("Foreign key to user job titles table");
+            $table->unsignedBigInteger('department_id')->comment("Foreign key to user departments table");
             $table->string('mobile')->unique();
-            $table->string('email')->default("");
-            $table->string('student_number')->unique();
-            $table->string('nationality')->default("");
-            $table->integer('college_id');
-            $table->tinyInteger('is_active')->comment("0 => Active 1 => InActive"); // 0=> Active  1=>InActive
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email')->unique();
+            $table->unsignedBigInteger('discount_id');
+            $table->tinyInteger('active')->comment("0 => InActive 1 => Active"); // 0=> Active  1=>InActive
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

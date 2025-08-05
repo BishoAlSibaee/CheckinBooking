@@ -4,15 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
     use HasFactory;
-
-    public $timestamps = false;
+    public $timestamps = true;
 
     function suite():BelongsTo {
         return $this->belongsTo(Suite::class);
+    }
+
+    function floor():BelongsTo {
+        return $this->belongsTo(Floor::class);
+    }
+
+    function roomFeatures() : HasMany {
+        return $this->hasMany(Room_feature::class);
+    }
+
+    function building():BelongsTo {
+        return $this->belongsTo(Building::class);
+    }
+
+    function roomType():BelongsTo {
+        return $this->belongsTo(RoomType::class);
     }
 }
